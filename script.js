@@ -1,8 +1,6 @@
 $(document).ready(function() {
-  var myresult,apiurl_size;
     var YOUTUBE_BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
     var FLICKR_API = "https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=fac284a050eaad75262c2a70be1041c6&per_page=1&format=json&nojsoncallback=1";    
-    var myresult = $('#js-search-input').val();
 
 // YOUTUBE
     function getYouTubeApi(searchTerm, callback) {
@@ -14,7 +12,7 @@ $(document).ready(function() {
     }
     $.getJSON(YOUTUBE_BASE_URL, query, callback);
   }
-
+  //Showing Youtube Results
   function showYouTubeResults(data) {
     var youtubeResult='';
     
@@ -30,14 +28,13 @@ $(document).ready(function() {
 
     $('#js-results').html(youtubeResult);
   }
-
+  // Youtube search
   $('#js-search').submit(function() {
     event.preventDefault();
     var searchTerm = $('#js-search-input').val() + "song";         
     getYouTubeApi(searchTerm, showYouTubeResults); 
 
 //FLICKR
-
     $.getJSON(FLICKR_API,function(json){
       $.each(json.photos.photo,function(i,myresult){
         apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=fac284a050eaad75262c2a70be1041c6&photo_id="+myresult.id+"&format=json&nojsoncallback=1";
