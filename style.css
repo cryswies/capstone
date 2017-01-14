@@ -2,6 +2,10 @@
 	margin: 0;
 }
 
+html, body {
+	height: 100%;
+}
+
 h1 {
 	font-family: 'Playfair Display', serif;
 	font-size: 1000%;
@@ -10,25 +14,17 @@ h1 {
 	color: white;
 	text-shadow: 2px 2px 10px rgba(192,192,192, 0.4);
 	padding-top: 11%;
-	float: left;
 	padding-left: 15%;
-	clear: both;
+	display: inline-block;
 }
 
-h2 {
-	font-family: 'Playfair Display', serif;
-	font-size: 100%;
-	margin: 0;
-}
 
 p {
 	font-family: 'Raleway', sans-serif;
 	margin: 15px;
-}
-
-html, body {
-	text-align: center;
-	height: 100%;
+	color: white;
+	margin-top: 10%;
+	padding-left: 12%;
 }
 
 .content {
@@ -41,11 +37,6 @@ html, body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-}
-
-.content img {
-	height: 100%;
-	opacity: 0.5;
 }
 
 .content:after {
@@ -63,19 +54,18 @@ html, body {
 	border: none;
 }
 
-#song-results {
-	display: inline-block;
-	color: black;
-}
-
 form {
-	padding-top: 40px;
+	padding-top: 1%;
 	float: left;
 	padding-left: 15%;
 }
 
 footer, .content:after {
 	height: 50px;
+}
+
+footer {
+	text-align: center;
 }
 
 .fa {
