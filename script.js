@@ -26,7 +26,7 @@ $(document).ready(function() {
       youtubeResult += '<p>No results!</p>';
     }
 
-    $('#js-results').html(youtubeResult);
+    $('#song-results').html(youtubeResult);
   }
   // Youtube search
   $('#js-search').submit(function() {
@@ -37,8 +37,8 @@ $(document).ready(function() {
 //FLICKR
     $.getJSON(FLICKR_API,function(json){
       $.each(json.photos.photo,function(i,myresult){
-        apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=fac284a050eaad75262c2a70be1041c6&photo_id="+myresult.id+"&format=json&nojsoncallback=1";
-        $.getJSON(apiurl_size,function(size){
+        FLICKR_API_size = "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=fac284a050eaad75262c2a70be1041c6&photo_id="+myresult.id+"&format=json&nojsoncallback=1";
+        $.getJSON(FLICKR_API_size,function(size){
           $.each(size.sizes.size,function(i,myresult_size){
             if(myresult_size.width < 1000){
               $(".content").css({backgroundImage: "url(" + myresult_size.source + ")"});
